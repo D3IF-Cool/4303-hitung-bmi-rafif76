@@ -3,7 +3,6 @@ package org.d3if4080.hitungbmi.db
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-class BmiEntity {
     @Entity(tableName = "bmi")
     data class BmiEntity(
         @PrimaryKey(autoGenerate = true)
@@ -14,5 +13,3 @@ class BmiEntity {
         var isMale: Boolean
     )
 
-
-}

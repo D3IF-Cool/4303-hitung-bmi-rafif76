@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
-class BmiDao {
+
 
     @Dao
     interface BmiDao {
@@ -16,4 +16,3 @@ class BmiDao {
     }
 
 
-}
