@@ -22,6 +22,7 @@ class HitungFragment : Fragment() {
 
 
 
+
     private val viewModel: HitungViewModel by lazy {
         val db = BmiDb.getInstance(requireContext())
         val factory = HitungViewModelFactory(db.dao)
@@ -50,6 +51,10 @@ class HitungFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.data.observe(viewLifecycleOwner, {
+            Log.d("HistoriFragment", "Jumlah data: ${it.size}")
+        })
+
         viewModel.getNavigasi().observe(viewLifecycleOwner, {
             if (it == null) return@observe
             findNavController().navigate(HitungFragmentDirections
@@ -65,10 +70,6 @@ class HitungFragment : Fragment() {
             binding.buttonGroup.visibility = View.VISIBLE
 
 
-            viewModel.data.observe(viewLifecycleOwner, {
-                if (it == null) return@observe
-                Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
-            })
         })
     }
 
