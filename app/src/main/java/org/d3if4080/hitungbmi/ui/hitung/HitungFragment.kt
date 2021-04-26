@@ -51,9 +51,7 @@ class HitungFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.data.observe(viewLifecycleOwner, {
-            Log.d("HistoriFragment", "Jumlah data: ${it.size}")
-        })
+
 
         viewModel.getNavigasi().observe(viewLifecycleOwner, {
             if (it == null) return@observe
@@ -68,6 +66,7 @@ class HitungFragment : Fragment() {
             binding.kategoriTextView.text = getString(R.string.kategori_x,
                     getKategori(it.kategori))
             binding.buttonGroup.visibility = View.VISIBLE
+
 
 
         })
